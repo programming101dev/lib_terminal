@@ -1,0 +1,3 @@
+kind	original_path	build	install
+header	lib_unix/include/p101_unix/p101_ttyent.h	not-built	not-installed
+source	lib_unix/src/ttyent.c	not-built	not-installed
