@@ -22,7 +22,7 @@ int p101_isatty(const struct p101_env *env, struct p101_error *err, int fildes)
     int ret_val;
 
     P101_TRACE(env);
-    P101_WRAPPER_FAULT_RETURN(env, err, -1);
+    P101_WRAPPER_FAULT_RETURN(env, err, ret_val, -1);
     errno   = 0;
     ret_val = isatty(fildes);
 
@@ -31,7 +31,7 @@ int p101_isatty(const struct p101_env *env, struct p101_error *err, int fildes)
         P101_ERROR_RAISE_ERRNO(err, errno == 0 ? ENOTTY : errno);
     }
 
-    P101_TRACE_EXIT(env);
+    P101_WRAPPER_DONE(env);
     return ret_val;
 }
 
@@ -40,7 +40,7 @@ pid_t p101_tcgetpgrp(const struct p101_env *env, struct p101_error *err, int fil
     pid_t ret_val;
 
     P101_TRACE(env);
-    P101_WRAPPER_FAULT_RETURN(env, err, -1);
+    P101_WRAPPER_FAULT_RETURN(env, err, ret_val, -1);
     errno   = 0;
     ret_val = tcgetpgrp(fildes);
 
@@ -49,7 +49,7 @@ pid_t p101_tcgetpgrp(const struct p101_env *env, struct p101_error *err, int fil
         P101_ERROR_RAISE_ERRNO(err, errno);
     }
 
-    P101_TRACE_EXIT(env);
+    P101_WRAPPER_DONE(env);
     return ret_val;
 }
 
@@ -58,7 +58,7 @@ int p101_tcsetpgrp(const struct p101_env *env, struct p101_error *err, int filde
     int ret_val;
 
     P101_TRACE(env);
-    P101_WRAPPER_FAULT_RETURN(env, err, -1);
+    P101_WRAPPER_FAULT_RETURN(env, err, ret_val, -1);
     errno   = 0;
     ret_val = tcsetpgrp(fildes, pgid_id);
 
@@ -67,7 +67,7 @@ int p101_tcsetpgrp(const struct p101_env *env, struct p101_error *err, int filde
         P101_ERROR_RAISE_ERRNO(err, errno);
     }
 
-    P101_TRACE_EXIT(env);
+    P101_WRAPPER_DONE(env);
     return ret_val;
 }
 
@@ -76,7 +76,7 @@ int p101_ttyname_r(const struct p101_env *env, struct p101_error *err, int filde
     int ret_val;
 
     P101_TRACE(env);
-    P101_WRAPPER_FAULT_RETURN_CODE(env, err);
+    P101_WRAPPER_FAULT_RETURN_CODE(env, err, ret_val);
     errno   = 0;
     ret_val = ttyname_r(fildes, name, namesize);
 
@@ -85,6 +85,6 @@ int p101_ttyname_r(const struct p101_env *env, struct p101_error *err, int filde
         P101_ERROR_RAISE_ERRNO(err, ret_val);
     }
 
-    P101_TRACE_EXIT(env);
+    P101_WRAPPER_DONE(env);
     return ret_val;
 }

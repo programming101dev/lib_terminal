@@ -46,7 +46,7 @@ int p101_cfsetispeed(const struct p101_env *env, struct p101_error *err, struct 
     int ret_val;
 
     P101_TRACE(env);
-    P101_WRAPPER_FAULT_RETURN(env, err, -1);
+    P101_WRAPPER_FAULT_RETURN(env, err, ret_val, -1);
     errno   = 0;
     ret_val = cfsetispeed(termios_p, speed);
 
@@ -55,7 +55,7 @@ int p101_cfsetispeed(const struct p101_env *env, struct p101_error *err, struct 
         P101_ERROR_RAISE_ERRNO(err, errno);
     }
 
-    P101_TRACE_EXIT(env);
+    P101_WRAPPER_DONE(env);
     return ret_val;
 }
 
@@ -64,7 +64,7 @@ int p101_cfsetospeed(const struct p101_env *env, struct p101_error *err, struct 
     int ret_val;
 
     P101_TRACE(env);
-    P101_WRAPPER_FAULT_RETURN(env, err, -1);
+    P101_WRAPPER_FAULT_RETURN(env, err, ret_val, -1);
     errno   = 0;
     ret_val = cfsetospeed(termios_p, speed);
 
@@ -73,7 +73,7 @@ int p101_cfsetospeed(const struct p101_env *env, struct p101_error *err, struct 
         P101_ERROR_RAISE_ERRNO(err, errno);
     }
 
-    P101_TRACE_EXIT(env);
+    P101_WRAPPER_DONE(env);
     return ret_val;
 }
 
@@ -82,7 +82,7 @@ int p101_tcdrain(const struct p101_env *env, struct p101_error *err, int fildes)
     int ret_val;
 
     P101_TRACE(env);
-    P101_WRAPPER_FAULT_RETURN(env, err, -1);
+    P101_WRAPPER_FAULT_RETURN(env, err, ret_val, -1);
     errno   = 0;
     ret_val = tcdrain(fildes);
 
@@ -91,7 +91,7 @@ int p101_tcdrain(const struct p101_env *env, struct p101_error *err, int fildes)
         P101_ERROR_RAISE_ERRNO(err, errno);
     }
 
-    P101_TRACE_EXIT(env);
+    P101_WRAPPER_DONE(env);
     return ret_val;
 }
 
@@ -100,7 +100,7 @@ int p101_tcflow(const struct p101_env *env, struct p101_error *err, int fildes, 
     int ret_val;
 
     P101_TRACE(env);
-    P101_WRAPPER_FAULT_RETURN(env, err, -1);
+    P101_WRAPPER_FAULT_RETURN(env, err, ret_val, -1);
     errno   = 0;
     ret_val = tcflow(fildes, action);
 
@@ -109,7 +109,7 @@ int p101_tcflow(const struct p101_env *env, struct p101_error *err, int fildes, 
         P101_ERROR_RAISE_ERRNO(err, errno);
     }
 
-    P101_TRACE_EXIT(env);
+    P101_WRAPPER_DONE(env);
     return ret_val;
 }
 
@@ -118,7 +118,7 @@ int p101_tcflush(const struct p101_env *env, struct p101_error *err, int fildes,
     int ret_val;
 
     P101_TRACE(env);
-    P101_WRAPPER_FAULT_RETURN(env, err, -1);
+    P101_WRAPPER_FAULT_RETURN(env, err, ret_val, -1);
     errno   = 0;
     ret_val = tcflush(fildes, queue_selector);
 
@@ -127,7 +127,7 @@ int p101_tcflush(const struct p101_env *env, struct p101_error *err, int fildes,
         P101_ERROR_RAISE_ERRNO(err, errno);
     }
 
-    P101_TRACE_EXIT(env);
+    P101_WRAPPER_DONE(env);
     return ret_val;
 }
 
@@ -136,7 +136,7 @@ int p101_tcgetattr(const struct p101_env *env, struct p101_error *err, int filde
     int ret_val;
 
     P101_TRACE(env);
-    P101_WRAPPER_FAULT_RETURN(env, err, -1);
+    P101_WRAPPER_FAULT_RETURN(env, err, ret_val, -1);
     errno   = 0;
     ret_val = tcgetattr(fildes, termios_p);
 
@@ -145,7 +145,7 @@ int p101_tcgetattr(const struct p101_env *env, struct p101_error *err, int filde
         P101_ERROR_RAISE_ERRNO(err, errno);
     }
 
-    P101_TRACE_EXIT(env);
+    P101_WRAPPER_DONE(env);
     return ret_val;
 }
 
@@ -154,7 +154,7 @@ pid_t p101_tcgetsid(const struct p101_env *env, struct p101_error *err, int fild
     pid_t ret_val;
 
     P101_TRACE(env);
-    P101_WRAPPER_FAULT_RETURN(env, err, -1);
+    P101_WRAPPER_FAULT_RETURN(env, err, ret_val, -1);
     errno   = 0;
     ret_val = tcgetsid(fildes);
 
@@ -163,7 +163,7 @@ pid_t p101_tcgetsid(const struct p101_env *env, struct p101_error *err, int fild
         P101_ERROR_RAISE_ERRNO(err, errno);
     }
 
-    P101_TRACE_EXIT(env);
+    P101_WRAPPER_DONE(env);
     return ret_val;
 }
 
@@ -172,7 +172,7 @@ int p101_tcsendbreak(const struct p101_env *env, struct p101_error *err, int fil
     int ret_val;
 
     P101_TRACE(env);
-    P101_WRAPPER_FAULT_RETURN(env, err, -1);
+    P101_WRAPPER_FAULT_RETURN(env, err, ret_val, -1);
     errno   = 0;
     ret_val = tcsendbreak(fildes, duration);
 
@@ -181,7 +181,7 @@ int p101_tcsendbreak(const struct p101_env *env, struct p101_error *err, int fil
         P101_ERROR_RAISE_ERRNO(err, errno);
     }
 
-    P101_TRACE_EXIT(env);
+    P101_WRAPPER_DONE(env);
     return ret_val;
 }
 
@@ -190,7 +190,7 @@ int p101_tcsetattr(const struct p101_env *env, struct p101_error *err, int filde
     int ret_val;
 
     P101_TRACE(env);
-    P101_WRAPPER_FAULT_RETURN(env, err, -1);
+    P101_WRAPPER_FAULT_RETURN(env, err, ret_val, -1);
     errno   = 0;
     ret_val = tcsetattr(fildes, optional_actions, termios_p);
 
@@ -199,6 +199,6 @@ int p101_tcsetattr(const struct p101_env *env, struct p101_error *err, int filde
         P101_ERROR_RAISE_ERRNO(err, errno);
     }
 
-    P101_TRACE_EXIT(env);
+    P101_WRAPPER_DONE(env);
     return ret_val;
 }
