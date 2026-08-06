@@ -19,10 +19,7 @@ set(BSD_STANDARD_FLAGS -D_BSD_SOURCE -D__BSD_VISIBLE)
 
 set(LIBRARY_TARGETS p101_terminal)
 set(p101_terminal_SOURCES
-        src/posix/termios.c
-        src/posix/unistd.c
-        src/posix_xsi/stdlib.c
-        src/unix/termios.c
+        src/terminal.c
 )
 set(p101_terminal_HEADERS
         include/p101_terminal/terminal.h
