@@ -35,8 +35,6 @@
  * limitations under the License.
  */
 
-#include <p101_env/wrapper.h>
-
 speed_t p101_cfgetispeed(const struct p101_env *env, const struct termios *termios_p)
 {
     speed_t ret_val;
