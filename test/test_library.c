@@ -1,6 +1,8 @@
 #include <p101_env/env.h>
 #include <p101_error/error.h>
-#include <p101_terminal/terminal.h>
+#include <p101_terminal/p101_stdlib.h>
+#include <p101_terminal/p101_termios.h>
+#include <p101_terminal/p101_unistd.h>
 #include <stdlib.h>
 
 int main(void)

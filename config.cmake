@@ -19,10 +19,14 @@ set(BSD_STANDARD_FLAGS -D_BSD_SOURCE -D__BSD_VISIBLE)
 
 set(LIBRARY_TARGETS p101_terminal)
 set(p101_terminal_SOURCES
-        src/terminal.c
+        src/stdlib.c
+        src/termios.c
+        src/unistd.c
 )
 set(p101_terminal_HEADERS
-        include/p101_terminal/terminal.h
+        include/p101_terminal/p101_stdlib.h
+        include/p101_terminal/p101_termios.h
+        include/p101_terminal/p101_unistd.h
 )
 set(p101_terminal_LINK_LIBRARIES
         p101_error
