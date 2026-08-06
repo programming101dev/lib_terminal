@@ -15,8 +15,6 @@
  */
 
 #include "p101_terminal/p101_stdlib.h"
-#include "p101_terminal/p101_termios.h"
-#include "p101_terminal/p101_unistd.h"
 #include <p101_c/p101_string.h>
 #include <p101_env/wrapper.h>
 #include <stdlib.h>
