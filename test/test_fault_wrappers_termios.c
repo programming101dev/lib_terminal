@@ -661,7 +661,6 @@ static void test_p101_tcdrain(struct p101_env *env, struct p101_error *err)
             char *native_argument_2_slave_name;
             int   native_argument_2;
             int   native_argument_2_status;
-            pid_t native_argument_2_session;
             native_argument_2_master = posix_openpt(O_RDWR | O_NOCTTY);
             if(native_argument_2_master < 0)
             {
@@ -689,14 +688,7 @@ static void test_p101_tcdrain(struct p101_env *env, struct p101_error *err)
                 native_child_status = 77;
                 goto native_child_done_;
             }
-            native_argument_2_session = setsid();
-            if(native_argument_2_session < 0)
-            {
-                P101_NATIVE_CLEANUP_ERRNO(close(native_argument_2_master));
-                native_child_status = 77;
-                goto native_child_done_;
-            }
-            native_argument_2 = open(native_argument_2_slave_name, O_RDWR);
+            native_argument_2 = open(native_argument_2_slave_name, O_RDWR | O_NOCTTY);
             if(native_argument_2 < 0)
             {
                 P101_NATIVE_CLEANUP_ERRNO(close(native_argument_2_master));
@@ -837,7 +829,6 @@ static void test_p101_tcflow(struct p101_env *env, struct p101_error *err)
             char *native_argument_2_slave_name;
             int   native_argument_2;
             int   native_argument_2_status;
-            pid_t native_argument_2_session;
             native_argument_2_master = posix_openpt(O_RDWR | O_NOCTTY);
             if(native_argument_2_master < 0)
             {
@@ -865,14 +856,7 @@ static void test_p101_tcflow(struct p101_env *env, struct p101_error *err)
                 native_child_status = 77;
                 goto native_child_done_;
             }
-            native_argument_2_session = setsid();
-            if(native_argument_2_session < 0)
-            {
-                P101_NATIVE_CLEANUP_ERRNO(close(native_argument_2_master));
-                native_child_status = 77;
-                goto native_child_done_;
-            }
-            native_argument_2 = open(native_argument_2_slave_name, O_RDWR);
+            native_argument_2 = open(native_argument_2_slave_name, O_RDWR | O_NOCTTY);
             if(native_argument_2 < 0)
             {
                 P101_NATIVE_CLEANUP_ERRNO(close(native_argument_2_master));
@@ -1013,7 +997,6 @@ static void test_p101_tcflush(struct p101_env *env, struct p101_error *err)
             char *native_argument_2_slave_name;
             int   native_argument_2;
             int   native_argument_2_status;
-            pid_t native_argument_2_session;
             native_argument_2_master = posix_openpt(O_RDWR | O_NOCTTY);
             if(native_argument_2_master < 0)
             {
@@ -1041,14 +1024,7 @@ static void test_p101_tcflush(struct p101_env *env, struct p101_error *err)
                 native_child_status = 77;
                 goto native_child_done_;
             }
-            native_argument_2_session = setsid();
-            if(native_argument_2_session < 0)
-            {
-                P101_NATIVE_CLEANUP_ERRNO(close(native_argument_2_master));
-                native_child_status = 77;
-                goto native_child_done_;
-            }
-            native_argument_2 = open(native_argument_2_slave_name, O_RDWR);
+            native_argument_2 = open(native_argument_2_slave_name, O_RDWR | O_NOCTTY);
             if(native_argument_2 < 0)
             {
                 P101_NATIVE_CLEANUP_ERRNO(close(native_argument_2_master));
@@ -1189,7 +1165,6 @@ static void test_p101_tcgetattr(struct p101_env *env, struct p101_error *err)
             char *native_argument_2_slave_name;
             int   native_argument_2;
             int   native_argument_2_status;
-            pid_t native_argument_2_session;
             native_argument_2_master = posix_openpt(O_RDWR | O_NOCTTY);
             if(native_argument_2_master < 0)
             {
@@ -1217,14 +1192,7 @@ static void test_p101_tcgetattr(struct p101_env *env, struct p101_error *err)
                 native_child_status = 77;
                 goto native_child_done_;
             }
-            native_argument_2_session = setsid();
-            if(native_argument_2_session < 0)
-            {
-                P101_NATIVE_CLEANUP_ERRNO(close(native_argument_2_master));
-                native_child_status = 77;
-                goto native_child_done_;
-            }
-            native_argument_2 = open(native_argument_2_slave_name, O_RDWR);
+            native_argument_2 = open(native_argument_2_slave_name, O_RDWR | O_NOCTTY);
             if(native_argument_2 < 0)
             {
                 P101_NATIVE_CLEANUP_ERRNO(close(native_argument_2_master));
@@ -1366,7 +1334,6 @@ static void test_p101_tcgetsid(struct p101_env *env, struct p101_error *err)
             char *native_argument_2_slave_name;
             int   native_argument_2;
             int   native_argument_2_status;
-            pid_t native_argument_2_session;
             native_argument_2_master = posix_openpt(O_RDWR | O_NOCTTY);
             if(native_argument_2_master < 0)
             {
@@ -1394,14 +1361,7 @@ static void test_p101_tcgetsid(struct p101_env *env, struct p101_error *err)
                 native_child_status = 77;
                 goto native_child_done_;
             }
-            native_argument_2_session = setsid();
-            if(native_argument_2_session < 0)
-            {
-                P101_NATIVE_CLEANUP_ERRNO(close(native_argument_2_master));
-                native_child_status = 77;
-                goto native_child_done_;
-            }
-            native_argument_2 = open(native_argument_2_slave_name, O_RDWR);
+            native_argument_2 = open(native_argument_2_slave_name, O_RDWR | O_NOCTTY);
             if(native_argument_2 < 0)
             {
                 P101_NATIVE_CLEANUP_ERRNO(close(native_argument_2_master));
@@ -1542,7 +1502,6 @@ static void test_p101_tcsendbreak(struct p101_env *env, struct p101_error *err)
             char *native_argument_2_slave_name;
             int   native_argument_2;
             int   native_argument_2_status;
-            pid_t native_argument_2_session;
             native_argument_2_master = posix_openpt(O_RDWR | O_NOCTTY);
             if(native_argument_2_master < 0)
             {
@@ -1570,14 +1529,7 @@ static void test_p101_tcsendbreak(struct p101_env *env, struct p101_error *err)
                 native_child_status = 77;
                 goto native_child_done_;
             }
-            native_argument_2_session = setsid();
-            if(native_argument_2_session < 0)
-            {
-                P101_NATIVE_CLEANUP_ERRNO(close(native_argument_2_master));
-                native_child_status = 77;
-                goto native_child_done_;
-            }
-            native_argument_2 = open(native_argument_2_slave_name, O_RDWR);
+            native_argument_2 = open(native_argument_2_slave_name, O_RDWR | O_NOCTTY);
             if(native_argument_2 < 0)
             {
                 P101_NATIVE_CLEANUP_ERRNO(close(native_argument_2_master));
@@ -1718,7 +1670,6 @@ static void test_p101_tcsetattr(struct p101_env *env, struct p101_error *err)
             char *native_argument_2_slave_name;
             int   native_argument_2;
             int   native_argument_2_status;
-            pid_t native_argument_2_session;
             native_argument_2_master = posix_openpt(O_RDWR | O_NOCTTY);
             if(native_argument_2_master < 0)
             {
@@ -1746,14 +1697,7 @@ static void test_p101_tcsetattr(struct p101_env *env, struct p101_error *err)
                 native_child_status = 77;
                 goto native_child_done_;
             }
-            native_argument_2_session = setsid();
-            if(native_argument_2_session < 0)
-            {
-                P101_NATIVE_CLEANUP_ERRNO(close(native_argument_2_master));
-                native_child_status = 77;
-                goto native_child_done_;
-            }
-            native_argument_2 = open(native_argument_2_slave_name, O_RDWR);
+            native_argument_2 = open(native_argument_2_slave_name, O_RDWR | O_NOCTTY);
             if(native_argument_2 < 0)
             {
                 P101_NATIVE_CLEANUP_ERRNO(close(native_argument_2_master));
